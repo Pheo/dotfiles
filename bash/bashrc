@@ -1,0 +1,23 @@
+#
+# Pheo's ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Prompt
+PS1='[\u@\h \W]\$ '
+
+# Standard
+alias ls='ls --color=auto'
+alias rm="trash --interactive --verbose"
+alias ssh="TERM=xterm-256color ssh"
+
+# Personal
+export EDITOR=nvim
+export TERMINAL="kitty"
+alias vim="nvim"
+alias imgcat="chafa"
+
+# Source
+. /opt/asdf-vm/asdf.sh
