@@ -10,14 +10,17 @@ PS1='[\u@\h \W]\$ '
 
 # Standard
 alias ls='ls --color=auto'
-alias rm="trash --interactive --verbose"
-alias ssh="TERM=xterm-256color ssh"
+alias rm='trash --interactive --verbose'
+alias ssh='TERM=xterm-256color ssh'
 
 # Personal
 export EDITOR=nvim
-export TERMINAL="kitty"
-alias vim="nvim"
-alias imgcat="chafa"
+export TERMINAL='kitty'
+export LESS='-r' # less -r
+alias vim='nvim'
+alias imgcat='chafa'
+alias ccat='pygmentize -g -O style=emacs'
+alias tree='tree -C'
 
 # Source
 . /opt/asdf-vm/asdf.sh
