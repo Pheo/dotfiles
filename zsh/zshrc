@@ -1,0 +1,50 @@
+#
+# Pheo's ~/.zshrc
+#
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.zsh_history
+HISTSIZE=999999999
+SAVEHIST=999999999
+setopt autocd extendedglob notify
+unsetopt beep nomatch
+bindkey -v
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/$HOME/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+# zsh -v keybinds
+bindkey '\e[3~' delete-char # vim mode
+bindkey -a '\e[3~' delete-char # all other modes
+
+# Standard
+alias ls='ls --color=auto'
+alias rm='trash --interactive --verbose'
+alias ssh='TERM=xterm-256color ssh'
+
+# Personal
+export EDITOR='nvim'
+export TERMINAL='kitty'
+export SHELL='zsh'
+export LESS='-r' # less -r
+alias vim='nvim'
+alias imgcat='chafa'
+alias ccat='pygmentize -g -O style=emacs'
+alias tree='tree -C'
+
+# Source
+. /opt/asdf-vm/asdf.sh
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
