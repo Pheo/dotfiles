@@ -15,7 +15,7 @@ HISTSIZE=999999999
 SAVEHIST=999999999
 setopt autocd extendedglob notify
 unsetopt beep nomatch
-bindkey -v
+bindkey -e # -e emacs; -v vim
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/$HOME/.zshrc'
