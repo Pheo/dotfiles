@@ -1,5 +1,6 @@
 "
 " Pheo's ~/.config/nvim/init.vim (~/.nvimrc symlink)
+" win32 @ ~/AppData/Local/nvim/init.vim
 "
 
 call plug#begin()

@@ -1,0 +1,5 @@
+#
+# Pheo's ~/.gitconfig
+#
+[status]
+	showUntrackedFiles = all
