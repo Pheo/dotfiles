@@ -204,4 +204,6 @@ let g:neoformat_run_all_formatters = 1
 " Linter (Alt)
 let g:ale_javascript_eslint_use_global = 1
 let g:ale_javascript_eslint_executable = 'eslint_d'
-let b:ale_linters = ['eslint']
+let g:ale_ruby_rubocop_executable = 'bundle'
+let g:ale_ruby_rubocop_options = '-D'
+let b:ale_linters = ['eslint', 'rubocop']
