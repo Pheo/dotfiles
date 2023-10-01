@@ -15,7 +15,8 @@ HISTSIZE=999999999
 SAVEHIST=999999999
 setopt autocd extendedglob notify
 unsetopt beep nomatch
-bindkey -e # -e emacs; -v vim
+bindkey -v # vim
+# bindkey -e # emacs
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/$HOME/.zshrc'
@@ -27,6 +28,7 @@ compinit
 # zsh -v keybinds
 bindkey '\e[3~' delete-char # vim mode
 bindkey -a '\e[3~' delete-char # all other modes
+bindkey "^R" history-incremental-search-backward # vim mode
 
 # Standard
 alias ls='ls --color=auto'
