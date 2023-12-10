@@ -193,11 +193,16 @@ set shiftwidth=2
 set tabstop=2
 set expandtab "uncomment for \t to \x20
 
+" Start Folds uncollapsed
+set foldmethod=syntax
+set nofoldenable
+
 " Disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Cross-platform clipboard
 set clipboard^=unnamed,unnamedplus
+"set paste
 
 " Color Scheme
 colorscheme gruvbox-material
