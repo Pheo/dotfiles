@@ -176,6 +176,10 @@ lua <<EOF
     on_attach = on_attach,
     flags = lsp_flags,
   }
+  require('lspconfig')['glint'].setup {
+    on_attach = on_attach,
+    flags = lsp_flags,
+  }
 EOF
 
 " Line Numbers
