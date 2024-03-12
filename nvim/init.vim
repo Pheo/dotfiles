@@ -164,19 +164,11 @@ lua <<EOF
   --require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
   --  capabilities = capabilities
   --}
-  require('lspconfig')['tsserver'].setup {
-    on_attach = on_attach,
-    flags = lsp_flags,
-  }
   require('lspconfig')['ccls'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
   }
   require('lspconfig')['pylsp'].setup {
-    on_attach = on_attach,
-    flags = lsp_flags,
-  }
-  require('lspconfig')['glint'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
   }
