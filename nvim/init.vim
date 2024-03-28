@@ -218,7 +218,8 @@ lua <<EOF
     mappings = {}
   }
 
-  vim.keymap.set('n', '<C-_>', ':Telescope live_grep<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<C-_>', ':Telescope live_grep<CR>', { noremap = true, silent = true }) -- windows
+  vim.keymap.set('n', '<C-/>', ':Telescope live_grep<CR>', { noremap = true, silent = true }) -- linux
   require('telescope').setup{
     defaults = {
       -- Default configuration for telescope goes here:
