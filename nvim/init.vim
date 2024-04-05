@@ -309,9 +309,10 @@ set shiftwidth=2
 set tabstop=2
 set expandtab "uncomment for \t to \x20
 
-" Start Folds uncollapsed
-set foldmethod=syntax
-set nofoldenable
+" Treesitter fold
+set foldmethod=expr "syntax if no treesitter
+set foldexpr=nvim_treesitter#foldexpr()
+set foldlevel=99
 
 " Disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
