@@ -211,7 +211,7 @@ bindsym $mod+Ctrl+Down resize shrink height 1 px or 1 ppt
 bindsym $mod+Ctrl+Left resize grow width 1 px or 1 ppt
 
 bindsym $mod+m exec imark
-bindsym $mod+g exec igo
+bindsym $mod+apostrophe exec igo
 
 # Quake!
 exec_always --no-startup-id kitty --class "scratch-terminal"
