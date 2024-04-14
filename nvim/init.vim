@@ -21,9 +21,18 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
 
 Plug 'dense-analysis/ale'
 Plug 'sbdchd/neoformat'
+Plug 'chentoast/marks.nvim'
+
+" Telescope. remember to yay -S ripgrep
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
+" or                                , { 'branch': '0.1.x' }
 
 " CMP
 " https://github.com/hrsh7th/nvim-cmp
@@ -36,14 +45,6 @@ Plug 'hrsh7th/nvim-cmp'
 " For vsnip users.
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
-Plug 'chentoast/marks.nvim'
-
-" Telescope. remember to yay -S ripgrep
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
-" or                                , { 'branch': '0.1.x' }
-
 
 " Plugin outside ~/.vim/plugged with post-update hook
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -89,8 +90,8 @@ lua <<EOF
       ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
-      { name = 'path' },
       { name = 'nvim_lsp' },
+      { name = 'nvim_lsp_signature_help' },
       { name = 'vsnip' }, -- For vsnip users.
       -- { name = 'luasnip' }, -- For luasnip users.
       -- { name = 'ultisnips' }, -- For ultisnips users.
@@ -103,14 +104,14 @@ lua <<EOF
   -- Set configuration for specific filetype.
   cmp.setup.filetype('gitcommit', {
     sources = cmp.config.sources({
-      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+      { name = 'git' }, -- You can specify the `cmp_git` source if you were installed it.
     }, {
       { name = 'buffer' },
     })
   })
 
   -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline('/', {
+  cmp.setup.cmdline({'/', '?'}, {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
       { name = 'buffer' }
@@ -124,50 +125,44 @@ lua <<EOF
       { name = 'path' }
     }, {
       { name = 'cmdline' }
-    })
+    }),
+    matching = { disallow_symbol_nonprefix_matching = false }
   })
 
-  -- Set up lspconfig.
-  local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-  -- Mappings.
-  -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-  local opts = { noremap=true, silent=true }
-  vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-  vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
   -- Use an on_attach function to only map the following keys
   -- after the language server attaches to the current buffer
-  local on_attach = function(client, bufnr)
-    -- Enable completion triggered by <c-x><c-o>
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  -- local on_attach = function(client, bufnr)
+  --   -- Enable completion triggered by <c-x><c-o>
+  --   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-    -- Mappings.
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local bufopts = { noremap=true, silent=true, buffer=bufnr }
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-    vim.keymap.set('n', '<space>wl', function()
-      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, bufopts)
-    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
-  end
+  --   -- Mappings.
+  --   -- See `:help vim.lsp.*` for documentation on any of the below functions
+  --   local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  --   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  --   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  --   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  --   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  --   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  --   vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+  --   vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+  --   vim.keymap.set('n', '<space>wl', function()
+  --     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  --   end, bufopts)
+  --   vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+  --   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+  --   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  --   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  --   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+  -- end
 
-  local lsp_flags = {
-    -- This is the default in Nvim 0.7+
-    debounce_text_changes = 150,
-  }
+  -- local lsp_flags = {
+  --   -- This is the default in Nvim 0.7+
+  --   debounce_text_changes = 150,
+  -- }
 
+  -- Set up lspconfig.
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
   --require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
   --  capabilities = capabilities
@@ -180,6 +175,43 @@ lua <<EOF
     on_attach = on_attach,
     flags = lsp_flags,
   }
+  --require('lspconfig')['tsserver'].setup {
+  require('lspconfig')['glint'].setup {
+    on_attach = on_attach,
+    flags = lsp_flags,
+  }
+
+  require('telescope').setup{
+    defaults = {
+      -- Default configuration for telescope goes here:
+      -- config_key = value,
+      mappings = {
+        i = {
+          -- map actions.which_key to <C-h> (default: <C-/>)
+          -- actions.which_key shows the mappings for your picker,
+          -- e.g. git_{create, delete, ...}_branch for the git_branches picker
+          ["<C-h>"] = "which_key",
+          ["<C-y>"] = require("telescope.actions.layout").toggle_preview
+        }
+      }
+    },
+    pickers = {
+      -- Default configuration for builtin pickers goes here:
+      -- picker_name = {
+      --   picker_config_key = value,
+      --   ...
+      -- }
+      -- Now the picker_config_key will be applied every time you call this
+      -- builtin picker
+    },
+    extensions = {
+      -- Your extension configuration goes here:
+      -- extension_name = {
+      --   extension_config_key = value,
+      -- }
+      -- please take a look at the readme of the extension you want to configure
+    }
+  }
 
   require'marks'.setup {
     -- whether to map keybinds or not. default true
@@ -190,8 +222,8 @@ lua <<EOF
     cyclic = true,
     -- whether the shada file is updated after modifying uppercase marks. default false
     force_write_shada = false,
-    -- how often (in ms) to redraw signs/recompute mark positions.
-    -- higher values will have better performance but may cause visual lag,
+    -- how often (in ms) to redraw signs/recompute mark positions. 
+    -- higher values will have better performance but may cause visual lag, 
     -- while lower values may cause performance penalties. default 150.
     refresh_interval = 250,
     -- sign priorities for each type of mark - builtin marks, uppercase marks, lowercase
@@ -218,8 +250,7 @@ lua <<EOF
     mappings = {}
   }
 
-  vim.keymap.set('n', '<C-_>', ':Telescope live_grep<CR>', { noremap = true, silent = true }) -- windows
-  vim.keymap.set('n', '<C-/>', ':Telescope live_grep<CR>', { noremap = true, silent = true }) -- linux
+  vim.keymap.set('n', '<C-/>', ':Telescope live_grep<CR>', { noremap = true, silent = true })
   require('telescope').setup{
     defaults = {
       -- Default configuration for telescope goes here:
