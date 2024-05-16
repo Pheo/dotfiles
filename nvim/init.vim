@@ -16,6 +16,7 @@ call plug#begin()
 
 " Shorthand notation; fetches https://github.com/sainnhe/gruvbx-material
 Plug 'sainnhe/gruvbox-material'
+Plug 'folke/tokyonight.nvim'
 
 " Plugins
 Plug 'kyazdani42/nvim-web-devicons'
