@@ -3,6 +3,10 @@
 # ie. ~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
 #
 
+Set-PSReadlineOption -EditMode vi # vi instead of emacs
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete # tab completion
+
+# nvim
 function NeoVim {
     param ($Parameter1 = '')
     nvim "$parameter1"
@@ -22,3 +26,6 @@ Set-PSReadLineKeyHandler -Chord Ctrl+b -ScriptBlock {
   [Microsoft.PowerShell.PSConsoleReadLine]::Insert("bash " + $line)
   [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
+
+# oh my posh
+(@(& 'C:/Users/cjm19/AppData/Local/Programs/oh-my-posh/bin/oh-my-posh.exe' init pwsh --config='' --print) -join "`n") | Invoke-Expression
