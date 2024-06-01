@@ -90,6 +90,7 @@ workspaces:
   - name: "8"
   - name: "9"
   - name: "10"
+  - name: "11"
 
 window_rules:
   # Task Manager requires admin privileges to manage and should be ignored unless running
@@ -215,6 +216,7 @@ keybindings:
     binding: "Alt+Shift+T"
 
   # Change focus to a workspace defined in `workspaces` config.
+  # https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/customize/keyboardfilter-key-names
   - command: "focus workspace 1"
     binding: "Alt+1"
   - command: "focus workspace 2"
@@ -235,6 +237,8 @@ keybindings:
     binding: "Alt+9"
   - command: "focus workspace 10"
     binding: "Alt+0"
+  - command: "focus workspace 11"
+    binding: "Alt+OemMinus"
 
   # Move focused workspace to a monitor in a given direction.
   # - command: "move workspace left"
@@ -267,3 +271,5 @@ keybindings:
     bindings: ["Alt+Shift+9"]
   - commands: ["move to workspace 10", "focus workspace 10"]
     bindings: ["Alt+Shift+0"]
+  - commands: ["move to workspace 11", "focus workspace 11"]
+    bindings: ["Alt+Shift+OemMinus"]
