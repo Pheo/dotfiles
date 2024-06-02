@@ -60,24 +60,54 @@ bar:
       focused_workspace_background: "#ffffff33"
       displayed_workspace_background: "#00000033"
       default_workspace_background: "transparent"
-  components_center:
-    - type: "window title"
-  components_right:
-    - type: "system tray"
     - type: "tiling direction"
       label_horizontal: "⮂"
       label_vertical: "⮁"
       background: "#ffffff33"
       margin: "0 4px"
       padding: "0 8px"
+    - type: "system tray"
+      label_expand_text: ">"
+      label_collapse_text: "<
+  components_center:
+    - type: "window title"
+  components_right:
     - type: "binding mode"
       background: "#ffffff33"
       margin: "0 4px 0 0"
       padding: "0 8px"
+    - type: "cpu"
+      label: "CPU: {percent_usage}% | "
+      refresh_interval_ms: 1000
+    - type: "gpu"
+      label: "GPU: {percent_usage}% | "
+      refresh_interval_ms: 1000
+    - type: "memory"
+      label: "RAM: {percent_usage}% | "
+      refresh_interval_ms: 1000
+    - type: "weather"
+      latitude: -37.8124
+      longitude: 144.9423
+      label: "{temperature_celsius}°C | "
+      label_sun: "☀️ {temperature_celsius}°C | "
+      label_moon: "🌙 {temperature_celsius}°C | "
+      label_cloud_moon: "🌙☁️ {temperature_celsius}°C | "
+      label_cloud_sun: "⛅ {temperature_celsius}°C | "
+      label_cloud_moon_rain: "🌙🌧️ {temperature_celsius}°C | "
+      label_cloud_sun_rain: "🌦️ {temperature_celsius}°C | "
+      label_cloud_rain: "🌧️ {temperature_celsius}°C | "
+      label_snow_flake: "❄️ {temperature_celsius}°C | "
+      label_thunderstorm: "⚡ {temperature_celsius}°C | "
+      label_cloud: "☁️ {temperature_celsius}°C | "
+    - type: "volume"
+      label_low: "🔊{volume_level}% | "
+      label_medium: "🔊{volume_level}% | "
+      label_high: "🔊{volume_level}% | "
+      label_mute: "🔊{volume_level}% | "
     - type: "clock"
       # Documentation on formatting date/time string:
       # https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
-      time_formatting: "hh:mm tt  ddd MMM d"
+      time_formatting: "yyyy-MM-dd hh:mm:ss"
 
 workspaces:
   - name: "1"
