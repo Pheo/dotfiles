@@ -27,5 +27,5 @@ Set-PSReadLineKeyHandler -Chord Ctrl+b -ScriptBlock {
   [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
 
-# oh my posh
-(@(& 'C:/Users/cjm19/AppData/Local/Programs/oh-my-posh/bin/oh-my-posh.exe' init pwsh --config='' --print) -join "`n") | Invoke-Expression
+# starship
+Invoke-Expression (&starship init powershell)
