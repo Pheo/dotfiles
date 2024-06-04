@@ -100,10 +100,10 @@ bar:
       label_thunderstorm: "⚡ {temperature_celsius}°C | "
       label_cloud: "☁️ {temperature_celsius}°C | "
     - type: "volume"
-      label_low: "🔊{volume_level}% | "
-      label_medium: "🔊{volume_level}% | "
-      label_high: "🔊{volume_level}% | "
-      label_mute: "🔊{volume_level}% | "
+      label_low: "🔊 {volume_level}% | "
+      label_medium: "🔊 {volume_level}% | "
+      label_high: "🔊 {volume_level}% | "
+      label_mute: "🔊 {volume_level}% | "
     - type: "clock"
       # Documentation on formatting date/time string:
       # https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
