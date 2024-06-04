@@ -29,3 +29,8 @@ Set-PSReadLineKeyHandler -Chord Ctrl+b -ScriptBlock {
 
 # starship
 Invoke-Expression (&starship init powershell)
+
+# aliases
+$NVIMRC = "$HOME\AppData\Local\nvim\init.vim"
+$GLAZECONFIG = "$HOME\.glaze-wm\config.yaml"
+$STARSHIPTOML = "$HOME\.config\starship.toml"

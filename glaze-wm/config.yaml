@@ -37,7 +37,7 @@ gaps:
 focus_borders:
   active:
     enabled: true
-    color: "#0000ff"
+    color: "#00a2ed"
 
   inactive:
     enabled: false
@@ -49,7 +49,7 @@ bar:
   opacity: 1.0
   background: "#20242cc4"
   foreground: "#ffffff"
-  font_family: "Segoe UI"
+  font_family: "CaskaydiaCove NF"
   font_size: "11px"
   padding: "4px 6px"
   offset_x: "0"
@@ -68,7 +68,7 @@ bar:
       padding: "0 8px"
     - type: "system tray"
       label_expand_text: ">"
-      label_collapse_text: "<
+      label_collapse_text: "<"
   components_center:
     - type: "window title"
   components_right:
