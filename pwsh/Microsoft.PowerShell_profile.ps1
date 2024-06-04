@@ -27,10 +27,16 @@ Set-PSReadLineKeyHandler -Chord Ctrl+b -ScriptBlock {
   [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
 }
 
+function List-Wide
+{
+    Get-ChildItem | Format-Wide -Column 5
+}
+Set-Alias -Name lsw -Value List-Wide
+
 # starship
 Invoke-Expression (&starship init powershell)
 
-# aliases
+# configs
 $NVIMRC = "$HOME\AppData\Local\nvim\init.vim"
 $GLAZECONFIG = "$HOME\.glaze-wm\config.yaml"
 $STARSHIPTOML = "$HOME\.config\starship.toml"
