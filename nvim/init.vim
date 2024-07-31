@@ -14,8 +14,6 @@ call plug#begin()
 
 " Make sure you use single quotes
 
-" Shorthand notation; fetches https://github.com/sainnhe/gruvbx-material
-Plug 'sainnhe/gruvbox-material'
 Plug 'folke/tokyonight.nvim'
 
 " Plugins
@@ -176,8 +174,7 @@ lua <<EOF
     on_attach = on_attach,
     flags = lsp_flags,
   }
-  --require('lspconfig')['tsserver'].setup {
-  require('lspconfig')['glint'].setup {
+  require('lspconfig')['tsserver'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
   }
@@ -251,7 +248,13 @@ lua <<EOF
     mappings = {}
   }
 
-  vim.keymap.set('n', '<C-/>', ':Telescope live_grep<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<leader>gg', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+
+  --vim.keymap.set('n', '<leader>ff', ':lua require"telescope.builtin".find_files({ hidden = true })<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<leader>fb', ':Telescope live_grep<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<leader>fg', ':Telescope buffers<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<leader>fh', ':Telescope help_tags<CR>', { noremap = true, silent = true })
   require('telescope').setup{
     defaults = {
       -- Default configuration for telescope goes here:
@@ -354,7 +357,7 @@ set clipboard^=unnamed,unnamedplus
 "set paste
 
 " Color Scheme
-colorscheme gruvbox-material
+colorscheme tokyonight
 
 " Formatter (Neoformat)
 let g:neoformat_run_all_formatters = 1
