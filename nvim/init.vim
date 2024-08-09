@@ -27,6 +27,8 @@ Plug 'dense-analysis/ale'
 Plug 'sbdchd/neoformat'
 Plug 'chentoast/marks.nvim'
 
+Plug 'github/copilot.vim'
+
 " Telescope. remember to yay -S ripgrep
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/plenary.nvim'
@@ -248,13 +250,6 @@ lua <<EOF
     mappings = {}
   }
 
-  vim.keymap.set('n', '<leader>gg', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
-
-  --vim.keymap.set('n', '<leader>ff', ':lua require"telescope.builtin".find_files({ hidden = true })<CR>', { noremap = true, silent = true })
-  vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', { noremap = true, silent = true })
-  vim.keymap.set('n', '<leader>fb', ':Telescope live_grep<CR>', { noremap = true, silent = true })
-  vim.keymap.set('n', '<leader>fg', ':Telescope buffers<CR>', { noremap = true, silent = true })
-  vim.keymap.set('n', '<leader>fh', ':Telescope help_tags<CR>', { noremap = true, silent = true })
   require('telescope').setup{
     defaults = {
       -- Default configuration for telescope goes here:
@@ -285,6 +280,22 @@ lua <<EOF
       -- please take a look at the readme of the extension you want to configure
     }
   }
+
+  vim.keymap.set('n', '<C-f>', ':Telescope<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<C-g>', ':NvimTreeFindFileToggle<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<C-s>', ':mksession!<CR>', { noremap = true, silent = true })
+
+  vim.keymap.set('n', '<C-_>', ':Telescope current_buffer_fuzzy_find<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<leader>ff', ':lua require"telescope.builtin".find_files({ hidden = true })<CR>', { noremap = true, silent = true })
+  --vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<leader>fg', ':Telescope live_grep<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<leader>fb', ':Telescope buffers<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<leader>fh', ':Telescope help_tags<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<leader>fi', ':Telescope lsp_incoming_calls<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<leader>fo', ':Telescope lsp_outgoing_calls<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<leader>fe', ':Telescope lsp_implementations<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<leader>fd', ':Telescope lsp_definitions<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<leader>fr', ':Telescope lsp_references<CR>', { noremap = true, silent = true })
 
   require'nvim-treesitter.configs'.setup {
     -- A list of parser names, or "all" (the five listed parsers should always be installed)
