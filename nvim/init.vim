@@ -60,7 +60,26 @@ call plug#end()
 
 lua << END
 require('nvim-tree').setup()
-require('lualine').setup()
+require('lualine').setup {
+  sections = {
+    lualine_c = {
+      {
+        'filename',
+        file_status = true, -- displays file status (readonly status, modified status)
+        path = 1 -- 0 = just filename, 1 = relative path, 2 = absolute path
+      }
+    }
+  },
+  inactive_sections = {
+    lualine_c = {
+      {
+        'filename',
+        file_status = true,
+        path = 2
+      }
+    }
+  }
+}
 END
 
 " https://github.com/hrsh7th/nvim-cmp
@@ -84,8 +103,8 @@ lua <<EOF
       -- documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
-      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      -- ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.abort(),
       ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
@@ -133,29 +152,29 @@ lua <<EOF
 
   -- Use an on_attach function to only map the following keys
   -- after the language server attaches to the current buffer
-  -- local on_attach = function(client, bufnr)
-  --   -- Enable completion triggered by <c-x><c-o>
-  --   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  local on_attach = function(client, bufnr)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  --   -- Mappings.
-  --   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  --   local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  --   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  --   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  --   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-  --   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  --   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-  --   vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-  --   vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-  --   vim.keymap.set('n', '<space>wl', function()
-  --     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  --   end, bufopts)
-  --   vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-  --   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-  --   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-  --   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  --   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
-  -- end
+    -- Mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    -- vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+    -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+    -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+    -- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+    -- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+    -- vim.keymap.set('n', '<space>wl', function()
+    --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    -- end, bufopts)
+    -- vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+    -- vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+    -- vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+    -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+    -- vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+  end
 
   -- local lsp_flags = {
   --   -- This is the default in Nvim 0.7+
@@ -177,42 +196,10 @@ lua <<EOF
     flags = lsp_flags,
   }
   require('lspconfig')['tsserver'].setup {
+  --require('lspconfig')['glint'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
   }
-
-  require('telescope').setup{
-    defaults = {
-      -- Default configuration for telescope goes here:
-      -- config_key = value,
-      mappings = {
-        i = {
-          -- map actions.which_key to <C-h> (default: <C-/>)
-          -- actions.which_key shows the mappings for your picker,
-          -- e.g. git_{create, delete, ...}_branch for the git_branches picker
-          ["<C-h>"] = "which_key",
-          ["<C-y>"] = require("telescope.actions.layout").toggle_preview
-        }
-      }
-    },
-    pickers = {
-      -- Default configuration for builtin pickers goes here:
-      -- picker_name = {
-      --   picker_config_key = value,
-      --   ...
-      -- }
-      -- Now the picker_config_key will be applied every time you call this
-      -- builtin picker
-    },
-    extensions = {
-      -- Your extension configuration goes here:
-      -- extension_name = {
-      --   extension_config_key = value,
-      -- }
-      -- please take a look at the readme of the extension you want to configure
-    }
-  }
-
   require'marks'.setup {
     -- whether to map keybinds or not. default true
     default_mappings = true,
@@ -259,7 +246,6 @@ lua <<EOF
           -- map actions.which_key to <C-h> (default: <C-/>)
           -- actions.which_key shows the mappings for your picker,
           -- e.g. git_{create, delete, ...}_branch for the git_branches picker
-          ["<C-h>"] = "which_key"
         }
       }
     },
@@ -278,9 +264,11 @@ lua <<EOF
       --   extension_config_key = value,
       -- }
       -- please take a look at the readme of the extension you want to configure
+    },
+    preview = {
+      hide_on_startup = true -- hide previwer when picker starts
     }
   }
-
   vim.keymap.set('n', '<C-f>', ':Telescope<CR>', { noremap = true, silent = true })
   vim.keymap.set('n', '<C-g>', ':NvimTreeFindFileToggle<CR>', { noremap = true, silent = true })
   vim.keymap.set('n', '<C-s>', ':mksession!<CR>', { noremap = true, silent = true })
@@ -291,11 +279,16 @@ lua <<EOF
   vim.keymap.set('n', '<leader>fg', ':Telescope live_grep<CR>', { noremap = true, silent = true })
   vim.keymap.set('n', '<leader>fb', ':Telescope buffers<CR>', { noremap = true, silent = true })
   vim.keymap.set('n', '<leader>fh', ':Telescope help_tags<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<leader>fj', ':Telescope jumplist<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<leader>fm', ':Telescope marks<CR>', { noremap = true, silent = true })
   vim.keymap.set('n', '<leader>fi', ':Telescope lsp_incoming_calls<CR>', { noremap = true, silent = true })
   vim.keymap.set('n', '<leader>fo', ':Telescope lsp_outgoing_calls<CR>', { noremap = true, silent = true })
   vim.keymap.set('n', '<leader>fe', ':Telescope lsp_implementations<CR>', { noremap = true, silent = true })
   vim.keymap.set('n', '<leader>fd', ':Telescope lsp_definitions<CR>', { noremap = true, silent = true })
   vim.keymap.set('n', '<leader>fr', ':Telescope lsp_references<CR>', { noremap = true, silent = true })
+
+  vim.keymap.set('n', '<leader><Tab>', ':Telescope buffers<CR>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<leader>db', ':bd<CR>', { noremap = true, silent = true })
 
   require'nvim-treesitter.configs'.setup {
     -- A list of parser names, or "all" (the five listed parsers should always be installed)
@@ -340,6 +333,9 @@ lua <<EOF
   }
 EOF
 
+" Shows in WM
+set title
+
 " Line Numbers
 set number
 
@@ -379,3 +375,5 @@ let g:ale_javascript_eslint_executable = 'eslint_d'
 let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_ruby_rubocop_options = '-D'
 let b:ale_linters = ['eslint', 'rubocop']
+
+au BufRead,BufNewFile *.csv set fileformat=dos
