@@ -195,8 +195,7 @@ lua <<EOF
     on_attach = on_attach,
     flags = lsp_flags,
   }
-  require('lspconfig')['tsserver'].setup {
-  --require('lspconfig')['glint'].setup {
+  require('lspconfig')['ts_ls'].setup {
     on_attach = on_attach,
     flags = lsp_flags,
   }
