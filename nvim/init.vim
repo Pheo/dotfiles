@@ -24,6 +24,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
 Plug 'ThePrimeagen/harpoon', { 'branch': 'harpoon2' }
 
+" rustup component add rust-analyzer
+Plug 'mrcjkb/rustaceanvim'
+
 Plug 'dense-analysis/ale'
 Plug 'sbdchd/neoformat'
 Plug 'chentoast/marks.nvim'
