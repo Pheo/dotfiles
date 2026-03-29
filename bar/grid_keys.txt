@@ -139,11 +139,17 @@ bind           Alt+sc_c  track on
 bind          Ctrl+sc_a  select Visible+_InPrevSel+_ClearSelection_SelectAll+
 bind          Ctrl+sc_s  select PrevSelection++_ClearSelection_SelectPart_50+
 bind               sc_q select FromMouse_700+_Builder_Not_Building+_ClearSelection_SelectAll+ // builder,comm,conn turret
+bind         Shift+sc_q select FromMouse_700+_Builder_Not_Building+_SelectAll+ // builder,comm,conn turret
 bind               sc_w select FromMouse_700+_Not_Builder_Not_Building_Not_Aircraft_Weapons+_ClearSelection_SelectAll+ // ground
+bind         Shift+sc_w select FromMouse_700+_Not_Builder_Not_Building_Not_Aircraft_Weapons+_SelectAll+ // ground
 bind               sc_a  select FromMouse_700+_Not_Builder_Not_Building_Not_Aircraft_Weapons_Not_RelativeHealth_65+_ClearSelection_SelectAll+ // ground < 66% hp
+bind         Shift+sc_a  select FromMouse_700+_Not_Builder_Not_Building_Not_Aircraft_Weapons_Not_RelativeHealth_65+_SelectAll+ // ground < 66% hp
 bind               sc_s select FromMouse_700+_Not_Builder_Not_Building_Not_Aircraft_Weapons_RelativeHealth_65+_ClearSelection_SelectAll+ // ground >= 66% hp
-bind               sc_z  select FromMouse_700+_Not_Builder_Not_Building_Aircraft_Weapons_Not_RelativeHealth_65+_ClearSelection_SelectAll+ // air < 66% hp
-bind               sc_x select FromMouse_700+_Not_Builder_Not_Building_Aircraft_Weapons_RelativeHealth_65+_ClearSelection_SelectAll+ // air >= 66% hp
+bind         Shift+sc_s select FromMouse_700+_Not_Builder_Not_Building_Not_Aircraft_Weapons_RelativeHealth_65+_SelectAll+ // ground >= 66% hp
+bind               sc_z  select FromMouse_1000+_Not_Builder_Not_Building_Aircraft_Weapons_Not_RelativeHealth_65+_ClearSelection_SelectAll+ // air < 66% hp
+bind         Shift+sc_z  select FromMouse_1000+_Not_Builder_Not_Building_Aircraft_Weapons_Not_RelativeHealth_65+_SelectAll+ // air < 66% hp
+bind               sc_x select FromMouse_1000+_Not_Builder_Not_Building_Aircraft_Weapons_RelativeHealth_65+_ClearSelection_SelectAll+ // air >= 66% hp
+bind         Shift+sc_x select FromMouse_1000+_Not_Builder_Not_Building_Aircraft_Weapons_RelativeHealth_65+_SelectAll+ // air >= 66% hp
 // bind          Ctrl+sc_w  select AllMap+_InPrevSel+_ClearSelection_SelectAll+
 // bind          Ctrl+sc_r  select AllMap+_Transport_Idle+_ClearSelection_SelectAll+
 // bind          Ctrl+sc_y  select Visible+_Waiting+_ClearSelection_SelectAll+
