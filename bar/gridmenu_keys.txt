@@ -20,5 +20,5 @@ bind           Any+sc_q  gridmenu_key 3 1
 bind           Any+sc_w  gridmenu_key 3 2
 bind           Any+sc_e  gridmenu_key 3 3
 bind           Any+sc_r  gridmenu_key 3 4
-bind          Ctrl+sc_r  gridmenu_next_page
-bind          Ctrl+sc_e  gridmenu_cycle_builder
+bind               sc_b  gridmenu_next_page
+bind          Ctrl+sc_b  gridmenu_cycle_builder
