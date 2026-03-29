@@ -5,14 +5,25 @@ bind           Alt+sc_-  decreasespeed
 bind        Alt+numpad+  increasespeed
 bind        Alt+numpad-  decreasespeed
 
-bind          Ctrl+sc_e  buildfacing inc
-bind    Ctrl+Shift+sc_e  buildfacing inc
-bind          Ctrl+sc_r  buildfacing dec
-bind    Ctrl+Shift+sc_r  buildfacing dec
-bind           Alt+sc_z  buildspacing inc
-bind     Shift+Alt+sc_z  buildspacing inc
-bind           Alt+sc_x  buildspacing dec
-bind     Shift+Alt+sc_x  buildspacing dec
+bind          meta+sc_q  buildfacing inc
+bind    Shift+meta+sc_q  buildfacing inc
+bind          meta+sc_w  buildfacing dec
+bind    Shift+meta+sc_w  buildfacing dec
+bind           Alt+sc_a  buildspacing inc
+bind     Shift+Alt+sc_a  buildspacing inc
+bind Ctrl+Shift+Alt+sc_a  buildspacing inc
+bind meta+Shift+Alt+sc_a  buildspacing inc
+bind meta+Ctrl+Shift+Alt+sc_a  buildspacing inc
+bind           Alt+sc_s  buildspacing dec
+bind     Shift+Alt+sc_s  buildspacing dec
+bind Ctrl+Shift+Alt+sc_s  buildspacing dec
+bind meta+Shift+Alt+sc_s  buildspacing dec
+bind meta+Ctrl+Shift+Alt+sc_s  buildspacing dec
+
+# stateprefs saves state for a unit type
+bind               Ctrl  stateprefs_record
+// bind            sc_?  stateprefs_clear
+// bind            sc_?  stateprefs_clearunit // clears for all selected
 
 bind          Ctrl+sc_b  selfd
 bind    Ctrl+Shift+sc_b  selfd queued
@@ -40,12 +51,14 @@ bind          Ctrl+sc_i  customgameinfo
 bind               sc_j  loadunits
 bind         Shift+sc_j  loadunits
 bind           Alt+sc_d  cloak
-bind     Alt+Shift+sc_d  cloak
+bind      Ctrl+Alt+sc_d  cloak
+bind     Shift+Alt+sc_d  cloak
 bind           Alt+sc_d  wantcloak
-bind       Alt+Any+sc_d  wantcloak
+bind      Ctrl+Alt+sc_d  wantcloak
+bind     Shift+Alt+sc_d  wantcloak
 bind               sc_m  restore
 bind         Shift+sc_m  restore
-bind          Ctrl+sc_e  command_skip_current
+bind          Ctrl+sc_v  command_skip_current
 bind          Ctrl+sc_c  command_cancel_last
 bind          Ctrl+sc_g  guard
 bind    Ctrl+Shift+sc_g  guard
@@ -54,20 +67,17 @@ bind    Ctrl+Shift+sc_g  guard
 bind               sc_e  repair
 bind         Shift+sc_e  repair
 bind               sc_c  settarget
-bind         Shift+sc_c  settarget
-bind               sc_v  settargetnoground
-bind         Shift+sc_v  settargetnoground
 bind          sc_c,sc_c  canceltarget
+bind         Shift+sc_c  settarget
 bind Shift+sc_c,Shift+sc_c  canceltarget
-bind          sc_v,sc_v  canceltarget
-bind Shift+sc_v,Shift+sc_v  canceltarget
 bind               sc_e  unloadunits
 bind         Shift+sc_e  unloadunits
 bind          Ctrl+sc_r  resurrect
-bind    Ctrl+Shift+sc_r  resurrect
-bind               sc_t  capture
-bind         Shift+sc_t  capture
+bind    Shift+Ctrl+sc_r  resurrect
+bind          Ctrl+sc_r  capture
+bind    Shift+Ctrl+sc_r  capture
 bind          Ctrl+sc_f  wait
+bind      Ctrl+Alt+sc_f  wait
 bind    Ctrl+Shift+sc_f  wait queued
 
 // 0 - off, 1 - on
@@ -76,29 +86,31 @@ bind               sc_e  onoff 1
 bind         Shift+sc_r  onoff 0
 bind         Shift+sc_e  onoff 1
 
-bind     sc_b,sc_b,sc_b  trajectory_toggle 1
-bind          sc_b,sc_b  trajectory_toggle 0
-bind     sc_b trajectory_toggle 2
-bind Shift+sc_b,Shift+sc_b,Shift+sc_b  trajectory_toggle 1
-bind Shift+sc_b,Shift+sc_b trajectory_toggle 0
-bind         Shift+sc_b  trajectory_toggle 2
+// 0 - ?, 1 - ?, 2 - ?
+// bind     sc_b,sc_b,sc_b  trajectory_toggle 1
+// bind          sc_b,sc_b  trajectory_toggle 0
+// bind               sc_b  trajectory_toggle 2
+// bind Shift+sc_b,Shift+sc_b,Shift+sc_b  trajectory_toggle 1
+// bind Shift+sc_b,Shift+sc_b trajectory_toggle 0
+// bind         Shift+sc_b  trajectory_toggle 2
 
-// 1 - fire at will, 2 - hold fire, 3 - return fire
-bind     sc_l,sc_l,sc_l  firestate 1
-bind          sc_l,sc_l  firestate 0
-bind               sc_l  firestate 2
-bind Shift+sc_l,Shift+sc_l,Shift+sc_l  firestate 1
-bind Shift+sc_l,Shift+sc_l  firestate 0
-bind         Shift+sc_l  firestate 2
+// 0 - fire at will, 1 - hold fire, 2 - return fire
+bind     sc_v,sc_v,sc_v  firestate 1
+bind          sc_v,sc_v  firestate 0
+bind               sc_v  firestate 2
+bind Shift+sc_v,Shift+sc_v,Shift+sc_v  firestate 1
+bind Shift+sc_v,Shift+sc_v  firestate 0
+bind         Shift+sc_v  firestate 2
 
-// 1 - roam, 2 - hold pos, 3 - maneuver
-bind     sc_;,sc_;,sc_;  movestate 1
-bind          sc_;,sc_;  movestate 0
-bind               sc_;  movestate 2
-bind Shift+sc_;,Shift+sc_;,Shift+sc_;  movestate 1
-bind Shift+sc_;,Shift+sc_;  movestate 0
-bind         Shift+sc_;  movestate 2
+// 0 - roam, 1 - hold pos, 2 - maneuver
+bind     sc_b,sc_b,sc_b  movestate 1
+bind          sc_b,sc_b  movestate 0
+bind               sc_b  movestate 2
+bind Shift+sc_b,Shift+sc_b,Shift+sc_b  movestate 1
+bind Shift+sc_b,Shift+sc_b  movestate 0
+bind         Shift+sc_b  movestate 2
 
+// 0 - off, 1 - on
 bind          sc_t,sc_t  repeat 0
 bind               sc_t  repeat 1
 bind Shift+sc_t,Shift+sc_t  repeat 0
@@ -108,16 +120,21 @@ bind         Shift+sc_t  repeat 1
 // bind           Ctrl+sc_g factoryguard 1
 
 bind           Any+sc_'  togglelos
-bind          Ctrl+sc_t  toggleoverview
+// bind          Ctrl+sc_t  toggleoverview
 bind           Alt+sc_o  cameraflip
+bind     meta+Shift+tab  cameraflip
 
 bind            Ctrl+f5  viewta
 bind            Ctrl+f6  viewspring
 bind            Ctrl+f7  HideInterface
-bind             Any+f5  LastMsgPos
-bind             Any+f6  ShowPathTraversability
-bind             Any+f7  ShowMetalMap
-bind             Any+f8  ShowElevation
+// bind             Any+f5  LastMsgPos
+bind             meta+1  unit_stats
+bind             meta+4  ShowPathTraversability
+bind             meta+5  ShowMetalMap
+bind             meta+6  ShowElevation
+// bind             meta+5  WireMap
+// bind             meta+6  WireModel
+// bind             meta+7  WireWater
 
 bind                f10  options
 bind                f11  luaui selector
@@ -125,20 +142,27 @@ bind            Any+f12  screenshot png
 
 // bind          Ctrl+sc_`  group unset
 // bind           Alt+sc_`  remove_from_autogroup
+// usual Ctrl+space won't work here..
+bind          Ctrl+sc_e  group unset
+bind     meta+Ctrl+sc_e  remove_from_autogroup
 
-// bind  Alt+sc_e,Alt+sc_e  drawlabel
-bind           Alt+sc_e  drawinmap
-// bind           Alt+sc_r  clearmapmarks
-// bind           Alt+sc_t  controlunit
+// draw/mark must be single key
+// bind       sc_?  drawlabel
+bind     sc_z,sc_z  quicksharetotarget
+bind          sc_z  drawinmap
+bind    Shift+sc_z  clearmapmarks
+bind        Ctrl+z  edit_escape // draw label cancel
 
 // bind          Ctrl+sc_e  select AllMap++_ClearSelection_SelectAll+
 bind           Ctrl+tab  select AllMap+_Weapons_Not_Building_Not_Buildoptions_Idle+_ClearSelection_SelectAll+
 bind          Shift+tab  select AllMap+_Buildoptions_Not_Building_Idle+_ClearSelection_SelectAll+
 bind                tab  selectcomm focus
+bind           meta+tab  selectcomm focus
 // bind           Alt+sc_c  viewselection
 bind           Alt+sc_c  track on // track cycles through selected units
 bind          Ctrl+sc_a  select Visible+_InPrevSel+_ClearSelection_SelectAll+
 bind          Ctrl+sc_s  select PrevSelection++_ClearSelection_SelectPart_50+
+// todo - Ctrl+sc_q, Ctrl+sc_w
 bind               sc_q  select FromMouse_700+_Builder_Not_Building+_ClearSelection_SelectAll+ // builder,comm,conn turret
 bind         Shift+sc_q  select FromMouse_700+_Builder_Not_Building+_SelectAll+ // builder,comm,conn turret
 bind               sc_w  select FromMouse_700+_Not_Builder_Not_Aircraft_Weapons+_ClearSelection_SelectAll+ // ground,towers
@@ -147,8 +171,6 @@ bind               sc_a  select FromMouse_700+_Not_Builder_Not_Building_Not_Airc
 bind         Shift+sc_a  select FromMouse_700+_Not_Builder_Not_Building_Not_Aircraft_Weapons_Not_RelativeHealth_65+_SelectAll+ // ground < 66% hp
 bind               sc_s  select FromMouse_700+_Not_Builder_Not_Building_Not_Aircraft_Weapons_RelativeHealth_65+_ClearSelection_SelectAll+ // ground >= 66% hp
 bind         Shift+sc_s  select FromMouse_700+_Not_Builder_Not_Building_Not_Aircraft_Weapons_RelativeHealth_65+_SelectAll+ // ground >= 66% hp
-bind               sc_z  select FromMouse_2100+_IdMatches_armsilo_IdMatches_corsilo_IdMatches_armemp_IdMatches_cortron_IdMatches_armjuno_IdMatches_corjuno+_ClearSelection_SelectAll+ // launchers
-bind         Shift+sc_z  select FromMouse_2100+_IdMatches_armsilo_IdMatches_corsilo_IdMatches_armemp_IdMatches_cortron_IdMatches_armjuno_IdMatches_corjuno+_SelectAll+ // launchers
 bind               sc_x  select FromMouse_2100+_Not_Builder_Not_Building_Aircraft_Weapons+_ClearSelection_SelectAll+ // aircraft
 bind         Shift+sc_x  select FromMouse_2100+_Not_Builder_Not_Building_Aircraft_Weapons+_SelectAll+ // aircraft
 // bind          Ctrl+sc_w  select AllMap+_InPrevSel+_ClearSelection_SelectAll+
@@ -168,33 +190,33 @@ bind            numpad3  movedown
 bind            numpad1  movefast
 
   // snd_volume_osd
-bind          backspace  MuteSound
+// bind          backspace  MuteSound
 bind            numpad+  snd_volume_increase
 bind               sc_=  snd_volume_increase
 bind               sc_-  snd_volume_decrease
 bind            numpad-  snd_volume_decrease
 
 // camera anchors
-bind            Ctrl+F1  set_camera_anchor 1
-bind            Ctrl+F2  set_camera_anchor 2
-bind            Ctrl+F3  set_camera_anchor 3
-bind            Ctrl+F4  set_camera_anchor 4
+bind         Ctrl+Alt+1  set_camera_anchor 1
+bind         Ctrl+Alt+2  set_camera_anchor 2
+bind         Ctrl+Alt+3  set_camera_anchor 3
+bind         Ctrl+Alt+4  set_camera_anchor 4
 
-bind                 F1  focus_camera_anchor 1
-bind                 F2  focus_camera_anchor 2
-bind                 F3  focus_camera_anchor 3
-bind                 F4  focus_camera_anchor 4
+bind              Alt+1  focus_camera_anchor 1
+bind              Alt+2  focus_camera_anchor 2
+bind              Alt+3  focus_camera_anchor 3
+bind              Alt+4  focus_camera_anchor 4
 
-// blueprint
-// bind           Alt+sc_b  blueprint_place
-// bind           Alt+sc_c  blueprint_create
-// bind           Alt+sc_d  blueprint_delete
-// bind           Alt+sc_[  blueprint_prev
-// bind           Alt+sc_]  blueprint_next
+// blueprint (hopefully this is expanded in future)
+bind          meta+sc_z  blueprint_place
+bind          meta+sc_x  blueprint_place
+bind          meta+sc_c  blueprint_place
+bind          meta+sc_v  blueprint_place
+bind     meta+Ctrl+sc_b  blueprint_create
+bind        meta+Delete  blueprint_delete
+bind          meta+sc_a  blueprint_prev
+bind          meta+sc_s  blueprint_next
 
 // quotas
 // bind           Alt+sc_g  factoryqueuemode
 
-// Wish this worked..
-// bind      Ctrl+sc_space  group unset
-// bind  Ctrl+Alt+sc_space  remove_from_autogroup
