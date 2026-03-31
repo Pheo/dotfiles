@@ -10,16 +10,16 @@ bind 7 specteam 6
 bind 8 specteam 7
 bind 9 specteam 8
 
-bind meta+Ctrl+0 add_to_autogroup 0
-bind meta+Ctrl+1 add_to_autogroup 1
-bind meta+Ctrl+2 add_to_autogroup 2
-bind meta+Ctrl+3 add_to_autogroup 3
-bind meta+Ctrl+4 add_to_autogroup 4
-bind meta+Ctrl+5 add_to_autogroup 5
-bind meta+Ctrl+6 add_to_autogroup 6
-bind meta+Ctrl+7 add_to_autogroup 7
-bind meta+Ctrl+8 add_to_autogroup 8
-bind meta+Ctrl+9 add_to_autogroup 9
+bind Alt+0 add_to_autogroup 0
+bind Alt+1 add_to_autogroup 1
+bind Alt+2 add_to_autogroup 2
+bind Alt+3 add_to_autogroup 3
+bind Alt+4 add_to_autogroup 4
+bind Alt+5 add_to_autogroup 5
+bind Alt+6 add_to_autogroup 6
+bind Alt+7 add_to_autogroup 7
+bind Alt+8 add_to_autogroup 8
+bind Alt+9 add_to_autogroup 9
 
 // bind Shift+Alt+0 load_autogroup_preset 0
 // bind Shift+Alt+1 load_autogroup_preset 1
@@ -32,29 +32,29 @@ bind meta+Ctrl+9 add_to_autogroup 9
 // bind Shift+Alt+8 load_autogroup_preset 8
 // bind Shift+Alt+9 load_autogroup_preset 9
 
-// TODO: change this to be select AllMap
-bind 0,0 group focus 0
-bind 1,1 group focus 1
-bind 2,2 group focus 2
-bind 3,3 group focus 3
-bind 4,4 group focus 4
-bind 5,5 group focus 5
-bind 6,6 group focus 6
-bind 7,7 group focus 7
-bind 8,8 group focus 8
-bind 9,9 group focus 9
+// double tap selects AllMap
+bind 0,0 group select 0
+bind 1,1 group select 1
+bind 2,2 group select 2
+bind 3,3 group select 3
+bind 4,4 group select 4
+bind 5,5 group select 5
+bind 6,6 group select 6
+bind 7,7 group select 7
+bind 8,8 group select 8
+bind 9,9 group select 9
 
-// TODO: change this to be select Visible
-bind 0 group select 0
-bind 1 group select 1
-bind 2 group select 2
-bind 3 group select 3
-bind 4 group select 4
-bind 5 group select 5
-bind 6 group select 6
-bind 7 group select 7
-bind 8 group select 8
-bind 9 group select 9
+// single tap selects Visible
+bind 0 select Visible+_InGroup_0+_ClearSelection_SelectAll+
+bind 1 select Visible+_InGroup_1+_ClearSelection_SelectAll+
+bind 2 select Visible+_InGroup_2+_ClearSelection_SelectAll+
+bind 3 select Visible+_InGroup_3+_ClearSelection_SelectAll+
+bind 4 select Visible+_InGroup_4+_ClearSelection_SelectAll+
+bind 5 select Visible+_InGroup_5+_ClearSelection_SelectAll+
+bind 6 select Visible+_InGroup_6+_ClearSelection_SelectAll+
+bind 7 select Visible+_InGroup_7+_ClearSelection_SelectAll+
+bind 8 select Visible+_InGroup_8+_ClearSelection_SelectAll+
+bind 9 select Visible+_InGroup_9+_ClearSelection_SelectAll+
 
 bind Ctrl+0 group set 0
 bind Ctrl+1 group set 1
