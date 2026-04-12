@@ -152,7 +152,7 @@ bind      Alt+Ctrl+sc_e  remove_from_autogroup
 // bind       sc_?  drawlabel
 bind     sc_z,sc_z  clearmapmarks
 bind          sc_z  drawinmap
-bind    Shift+sc_z  quicksharetotarget
+bind     Ctrl+sc_z  quicksharetotarget
 // bind        Ctrl+z  edit_escape // draw label cancel
 
 // bind          Ctrl+sc_e  select AllMap++_ClearSelection_SelectAll+
@@ -162,33 +162,43 @@ bind                tab  selectcomm focus
 bind           meta+tab  selectcomm focus
 // bind           Alt+sc_c  viewselection
 bind           Alt+sc_c  track on // track cycles through selected units
-bind               sc_a  select Visible+_InPrevSel+_ClearSelection_SelectAll+
-bind         Shift+sc_a  select FromMouse_700+_InPrevSel+_SelectAll+
-bind          Ctrl+sc_a  select PrevSelection++_ClearSelection_SelectPart_50+
-bind           Alt+sc_a  select PrevSelection++_ClearSelection_SelectPart_99+
-// todo - Ctrl+sc_q, Ctrl+sc_w
-bind          sc_q,sc_q  select FromMouse_700+_Buildoptions_Not_Building+_ClearSelection_SelectClosestToCursor+
-bind          Ctrl+sc_q  select FromMouse_700+_Buildoptions_Not_Building+_ClearSelection_SelectNum_1+ // builder,comm,conn turret
-bind               sc_q  select FromMouse_700+_Builder_Not_Building+_ClearSelection_SelectAll+ // builder,comm,conn turret
-bind         Shift+sc_q  select FromMouse_700+_Builder_Not_Building+_SelectAll+ // builder,comm,conn turret
-bind          sc_w,sc_w  select FromMouse_700+_Not_Builder_Not_Aircraft_Not_Building_Weapons+_ClearSelection_SelectAll+ // ground,towers
-bind               sc_w  select FromMouse_700+_Not_Builder_Not_Aircraft_Weapons+_ClearSelection_SelectAll+ // ground,towers
-bind         Shift+sc_w  select FromMouse_700+_Not_Builder_Not_Aircraft_Weapons+_SelectAll+ // ground,towers
+
+// q - select same type
+bind               sc_q  select Visible+_InPrevSel+_ClearSelection_SelectAll+
+bind         Shift+sc_q  select FromMouse_700+_InPrevSel+_SelectAll+
+bind          Ctrl+sc_q  select PrevSelection++_ClearSelection_SelectPart_50+
+bind           Alt+sc_q  select PrevSelection++_ClearSelection_SelectPart_99+
+
+// Alt+w - select all production
+bind           Alt+sc_w  select AllMap+_Building_Buildoptions+_ClearSelection_SelectAll+
+
+// TODO: Figure out how to get q,w,a,s,z,x to play nice with building
+// bind               sc_a  select Visible+_InPrevSel+_ClearSelection_SelectAll+
+// bind         Shift+sc_a  select FromMouse_700+_InPrevSel+_SelectAll+
+// bind          Ctrl+sc_a  select PrevSelection++_ClearSelection_SelectPart_50+
+// bind           Alt+sc_a  select PrevSelection++_ClearSelection_SelectPart_99+
+// bind          sc_q,sc_q  select FromMouse_700+_Buildoptions_Not_Building+_ClearSelection_SelectClosestToCursor+
+// bind          Ctrl+sc_q  select FromMouse_700+_Buildoptions_Not_Building+_ClearSelection_SelectNum_1+ // builder,comm,conn turret
+// bind               sc_q  select FromMouse_700+_Builder_Not_Building+_ClearSelection_SelectAll+ // builder,comm,conn turret
+// bind         Shift+sc_q  select FromMouse_700+_Builder_Not_Building+_SelectAll+ // builder,comm,conn turret
+// bind          sc_w,sc_w  select FromMouse_700+_Not_Builder_Not_Aircraft_Not_Building_Weapons+_ClearSelection_SelectAll+ // ground,towers
+// bind               sc_w  select FromMouse_700+_Not_Builder_Not_Aircraft_Weapons+_ClearSelection_SelectAll+ // ground,towers
+// bind         Shift+sc_w  select FromMouse_700+_Not_Builder_Not_Aircraft_Weapons+_SelectAll+ // ground,towers
 // ground < 50% hp
-bind               sc_s  chain force select FromMouse_700+_Not_Builder_Not_Building_Not_Aircraft_Weapons_Not_RelativeHealth_50+_ClearSelection_SelectAll+ | group unset
-bind         Shift+sc_s  select FromMouse_700+_Not_Builder_Not_Building_Not_Aircraft_Weapons_Not_RelativeHealth_50+_SelectAll+
+// bind               sc_s  chain force select FromMouse_700+_Not_Builder_Not_Building_Not_Aircraft_Weapons_Not_RelativeHealth_50+_ClearSelection_SelectAll+ | group unset
+// bind         Shift+sc_s  select FromMouse_700+_Not_Builder_Not_Building_Not_Aircraft_Weapons_Not_RelativeHealth_50+_SelectAll+
 // ground >= 50% hp
-bind          Ctrl+sc_s  select FromMouse_700+_Not_Builder_Not_Building_Not_Aircraft_Weapons_RelativeHealth_50+_ClearSelection_SelectAll+
-bind    Ctrl+Shift+sc_s  select FromMouse_700+_Not_Builder_Not_Building_Not_Aircraft_Weapons_RelativeHealth_50+_SelectAll+
-bind               sc_x  select FromMouse_2100+_Not_Builder_Not_Building_Aircraft_Weapons+_ClearSelection_SelectAll+ // aircraft
-bind         Shift+sc_x  select FromMouse_2100+_Not_Builder_Not_Building_Aircraft_Weapons+_SelectAll+ // aircraft
+// bind          Ctrl+sc_s  select FromMouse_700+_Not_Builder_Not_Building_Not_Aircraft_Weapons_RelativeHealth_50+_ClearSelection_SelectAll+
+// bind    Ctrl+Shift+sc_s  select FromMouse_700+_Not_Builder_Not_Building_Not_Aircraft_Weapons_RelativeHealth_50+_SelectAll+
+// bind               sc_x  select FromMouse_2100+_Not_Builder_Not_Building_Aircraft_Weapons+_ClearSelection_SelectAll+ // aircraft
+// bind         Shift+sc_x  select FromMouse_2100+_Not_Builder_Not_Building_Aircraft_Weapons+_SelectAll+ // aircraft
 // bind          Ctrl+sc_w  select AllMap+_InPrevSel+_ClearSelection_SelectAll+
 // bind          Ctrl+sc_r  select AllMap+_Transport_Idle+_ClearSelection_SelectAll+
-bind           Alt+sc_f  select Visible+_Waiting+_ClearSelection_SelectAll+
-bind  Alt+sc_q,Alt+sc_q  select AllMap+_Buildoptions_Not_Building+_ClearSelection_SelectClosestToCursor+
-bind           Alt+sc_q  select AllMap+_Buildoptions_Not_Building+_ClearSelection_SelectAll+
-bind  Alt+sc_w,Alt+sc_w  select AllMap+_Building_Buildoptions+_ClearSelection_SelectClosestToCursor+
-bind           Alt+sc_w  select AllMap+_Building_Buildoptions+_ClearSelection_SelectAll+
+// bind           Alt+sc_f  select Visible+_Waiting+_ClearSelection_SelectAll+
+// bind  Alt+sc_q,Alt+sc_q  select AllMap+_Buildoptions_Not_Building+_ClearSelection_SelectClosestToCursor+
+// bind           Alt+sc_q  select AllMap+_Buildoptions_Not_Building+_ClearSelection_SelectAll+
+// bind  Alt+sc_w,Alt+sc_w  select AllMap+_Building_Buildoptions+_ClearSelection_SelectClosestToCursor+
+// bind           Alt+sc_w  select AllMap+_Building_Buildoptions+_ClearSelection_SelectAll+
 // bind  Alt+sc_z,Alt+sc_z  select AllMap+_IdMatches_armsilo_IdMatches_corsilo_IdMatches_armemp_IdMatches_cortron_IdMatches_armjuno_IdMatches_corjuno+_ClearSelection_SelectClosestToCursor+ // launchers
 // bind           Alt+sc_z  select AllMap+_IdMatches_armsilo_IdMatches_corsilo_IdMatches_armemp_IdMatches_cortron_IdMatches_armjuno_IdMatches_corjuno+_ClearSelection_SelectAll+ // launchers
 
