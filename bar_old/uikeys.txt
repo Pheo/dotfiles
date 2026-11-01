@@ -1,0 +1,11 @@
+// $BAR/data/uikeys.txt
+
+unbindall          // clear the defaults
+unbind enter chat  // clear the defaults
+
+fakemeta   
+
+keyload     chat_and_ui_keys.txt
+keyload     gridmenu_keys.txt
+keyload     num_keys.txt
+keyload     grid_keys.txt

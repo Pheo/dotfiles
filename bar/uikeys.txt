@@ -1,11 +1,222 @@
-// $BAR/data/uikeys.txt
-
-unbindall          // clear the defaults
-unbind enter chat  // clear the defaults
-
-fakemeta   
-
-keyload     chat_and_ui_keys.txt
-keyload     gridmenu_keys.txt
-keyload     num_keys.txt
-keyload     grid_keys.txt
+// keybind editor profile: Pheo (46)
+fakemeta space
+bind esc select AllMap++_ClearSelection_SelectNum_0+
+bind esc quitmessage
+bind Shift+esc quitmenu
+bind Ctrl+Shift+esc quitforce
+bind Alt+Shift+esc reloadforce
+bind Any+escape edit_escape
+bind Any+pause pause
+bind esc teamstatus_close
+bind esc customgameinfo_close
+bind esc buildmenu_pregame_deselect
+bind Shift selectbox_append
+bind Shift selectbox_any
+bind Ctrl selectbox_mobile
+bind Alt selectbox Category_Mobile_Builder
+bind Any+space selectbox Aircraft
+bind Any+space buildsplit
+bind Any+space commandinsert prepend_between
+bind alt+sc_comma attack_range_dec
+bind Any+enter chat
+bind Alt+ctrl+sc_a chatswitchally
+bind Alt+ctrl+sc_s chatswitchspec
+bind Any+tab edit_complete
+bind Any+backspace edit_backspace
+bind Any+delete edit_delete
+bind Any+home edit_home
+bind Alt+left edit_home
+bind Any+end edit_end
+bind Alt+right edit_end
+bind Any+up edit_prev_line
+bind Any+down edit_next_line
+bind Any+left edit_prev_char
+bind Any+right edit_next_char
+bind Ctrl+left edit_prev_word
+bind Ctrl+right edit_next_word
+bind Any+enter edit_return
+bind Ctrl+v pastetext
+bind Any+right moveright
+bind Any+ctrl movefast
+bind Any+shift movetilt
+bind Any+alt movereset
+bind Any+alt toggle_allied_upgrade
+bind sc_e gridmenu_category 1
+bind sc_r gridmenu_category 2
+bind sc_t gridmenu_category 3
+bind sc_y gridmenu_category 4
+bind Shift+sc_e gridmenu_category 1
+bind Shift+sc_r gridmenu_category 2
+bind Shift+sc_t gridmenu_category 3
+bind Shift+sc_y gridmenu_category 4
+bind Any+sc_c gridmenu_key 1 1
+bind Any+sc_v gridmenu_key 1 2
+bind Any+sc_b gridmenu_key 1 3
+bind Any+sc_n gridmenu_key 1 4
+bind Any+sc_d gridmenu_key 2 1
+bind Any+sc_f gridmenu_key 2 2
+bind Any+sc_g gridmenu_key 2 3
+bind Any+sc_h gridmenu_key 2 4
+bind Any+sc_e gridmenu_key 3 1
+bind Any+sc_r gridmenu_key 3 2
+bind Any+sc_t gridmenu_key 3 3
+bind Any+sc_y gridmenu_key 3 4
+bind Ctrl+sc_e gridmenu_next_page
+bind sc_. gridmenu_cycle_builder
+bind Alt+sc_c cycleselected next
+bind 5 specteam 4
+bind 6 specteam 5
+bind 7 specteam 6
+bind 8 specteam 7
+bind 9 specteam 8
+bind 1,1 group focus 1
+bind 1 specteam 0
+bind 2,2 group focus 2
+bind 2 specteam 1
+bind 3,3 group focus 3
+bind 3 specteam 2
+bind 4,4 group focus 4
+bind 4 specteam 3
+bind 1 group select 1
+bind 2 group select 2
+bind 3 group select 3
+bind 4 group select 4
+bind Ctrl+1 group set 1
+bind Ctrl+2 group set 2
+bind Ctrl+3 group set 3
+bind Ctrl+4 group set 4
+bind Shift+sc_1 group add 1
+bind Shift+sc_2 group add 2
+bind Shift+sc_3 group add 3
+bind Shift+sc_4 group add 4
+bind any+sc_space factory_preset_toggle
+bind sc_[ buildfacing inc
+bind sc_] buildfacing dec
+bind Shift+mouse4 buildspacing inc
+bind Shift+mouse5 buildspacing dec
+bind sc_e manuallaunch
+bind Shift+sc_e manuallaunch
+bind sc_v reclaim
+bind Shift+sc_v reclaim
+bind sc_d fight
+bind Shift+sc_d fight
+bind Ctrl+sc_d patrol
+bind Ctrl+Shift+sc_d patrol
+bind Alt+sc_d cloak
+bind Shift+Alt+sc_d cloak
+bind Alt+sc_d wantcloak
+bind Shift+Alt+sc_d wantcloak
+bind Ctrl+sc_v command_skip_current
+bind Ctrl+sc_c command_cancel_last
+bind Ctrl+sc_g guard
+bind Ctrl+Shift+sc_g guard
+bind sc_c repair
+bind Shift+sc_c repair
+bind Ctrl+sc_f wait
+bind Ctrl+Shift+sc_f wait queued
+bind sc_= snd_volume_increase
+bind sc_- snd_volume_decrease
+bind Alt+sc_1 focus_camera_anchor 1
+bind Alt+sc_2 focus_camera_anchor 2
+bind Alt+sc_3 focus_camera_anchor 3
+bind Alt+sc_4 focus_camera_anchor 4
+bind sc_g move
+bind Shift+sc_g move
+bind sc_f10 options
+bind Any+sc_left moveleft
+bind Any+sc_down moveback
+bind Any+sc_up moveforward
+bind Alt+Ctrl+sc_1 set_camera_anchor 1
+bind Alt+Ctrl+sc_2 set_camera_anchor 2
+bind Alt+Ctrl+sc_3 set_camera_anchor 3
+bind Alt+Ctrl+sc_4 set_camera_anchor 4
+bind Meta+sc_1 unit_stats
+bind Meta+sc_2 showpathtraversability
+bind Meta+sc_3 showelevation
+bind Meta+sc_4 showmetalmap
+bind Alt+Shift+sc_c cycleselected prev
+bind Alt+Shift+sc_1 add_to_autogroup 1
+bind Alt+Shift+sc_2 add_to_autogroup 2
+bind Alt+Shift+sc_3 add_to_autogroup 3
+bind Alt+Shift+sc_4 add_to_autogroup 4
+bind Ctrl+sc_r repeat
+bind Ctrl+sc_e areaattack
+bind Ctrl+Shift+sc_e areaattack
+bind Meta+sc_d manualfire
+bind Meta+Shift+sc_d manualfire
+bind Shift+sc_e canceltarget
+bind sc_x,sc_x group focus 9
+bind sc_x group select 9
+bind sc_z,sc_z group focus 0
+bind sc_z group select 0
+bind sc_tab chain force group select 0 | group focus 0
+bind sc_q,sc_q group focus 5
+bind sc_q group select 5
+bind sc_w group select 6
+bind sc_w,sc_w group focus 6
+bind sc_a,sc_a group focus 7
+bind sc_a group select 7
+bind sc_s,sc_s group focus 8
+bind sc_s group select 8
+bind Ctrl+sc_q group set 5
+bind Ctrl+sc_w group set 6
+bind Ctrl+sc_a group set 7
+bind Ctrl+sc_s group set 8
+bind Ctrl+sc_x group set 9
+bind Ctrl+sc_z group set 0
+bind Shift+sc_q group add 5
+bind Shift+sc_w group add 6
+bind Shift+sc_a group add 7
+bind Shift+sc_s group add 8
+bind Shift+sc_x group add 9
+bind Shift+sc_z group add 0
+bind Alt+Shift+sc_q add_to_autogroup 5
+bind Alt+Shift+sc_w add_to_autogroup 6
+bind Alt+Shift+sc_a add_to_autogroup 7
+bind Alt+Shift+sc_s add_to_autogroup 8
+bind Alt+Shift+sc_x add_to_autogroup 9
+bind Alt+Shift+sc_z add_to_autogroup 0
+bind Ctrl+sc_tab select AllMap+_Weapons_Not_Building_Not_Buildoptions_Idle+_ClearSelection_SelectAll+
+bind Shift+sc_tab select AllMap+_Builder_Not_Building_Idle+_ClearSelection_SelectAll+
+bind Alt+sc_q select AllMap+_Buildoptions_Building_IdMatches_armlab_IdMatches_armalab_IdMatches_armvp_IdMatches_armavp_IdMatches_armhp_IdMatches_armfhp_IdMatches_corlab_IdMatches_coralab_IdMatches_corvp_IdMatches_coravp_IdMatches_corhp_IdMatches_corfhp_IdMatches_leglab_IdMatches_legalab_IdMatches_legvp_IdMatches_legavp_IdMatches_leghp_IdMatches_legfhp+_ClearSelection_SelectOne
+bind Alt+sc_w select AllMap+_Buildoptions_Building_IdMatches_armshltx_IdMatches_armshltxuw_IdMatches_corgant_IdMatches_corgantuw_IdMatches_leggant_IdMatches_leggantuw_IdMatches_armapt3_IdMatches_corapt3_IdMatches_legapt3_IdMatches_armhaap_IdMatches_corhaap_IdMatches_corhaapuw_IdMatches_leghaap_IdMatches_armhalab_IdMatches_corhalab_IdMatches_leghalab_IdMatches_armhavp_IdMatches_corhavp_IdMatches_leghavp_IdMatches_armhasy_IdMatches_corhasy+_ClearSelection_SelectOne
+bind Alt+sc_a select AllMap+_Buildoptions_Not_Building_Idle+_ClearSelection_SelectOne+
+bind Alt+sc_s select AllMap+_Buildoptions_Building_IdMatches_armap_IdMatches_armaap_IdMatches_armplat_IdMatches_armsy_IdMatches_armasy_IdMatches_corap_IdMatches_coraap_IdMatches_corplat_IdMatches_corsy_IdMatches_corasy_IdMatches_legap_IdMatches_legaap_IdMatches_legsplab_IdMatches_legsy_IdMatches_legadvshipyard+_ClearSelection_SelectOne
+bind Alt+sc_e select AllMap+_Transport+_ClearSelection_SelectOne+
+bind Alt+sc_z lastmsgpos
+bind Alt+sc_x selectcomm focus
+bind Alt+sc_g drawinmap
+bind Alt+Shift+sc_g clearmapmarks
+bind Alt+Ctrl+sc_g quicksharetotarget
+bind Meta+sc_w select PrevSelection+_Not_Building_Not_RelativeHealth_60+_ClearSelection_SelectAll+
+bind Meta+sc_a select Visible+_InPrevSel+_ClearSelection_SelectAll+
+bind Meta+sc_s select PrevSelection++_ClearSelection_SelectPart_50+
+bind Meta+sc_z select PrevSelection+_Category_UNDERWATER+_ClearSelection_SelectAll+
+bind Meta+sc_x select PrevSelection+_Category_SHIP+_ClearSelection_SelectAll
+bind Ctrl+sc_t factoryqueuemode
+bind Ctrl+Shift+sc_w selfd
+bind sc_b resurrect
+bind Shift+sc_b resurrect
+bind sc_b capture
+bind Shift+sc_b capture
+bind sc_b areamex
+bind sc_f stop
+bind Shift+sc_f stop
+bind sc_e settarget
+bind Shift+sc_e settarget
+bind Meta+sc_f select Visible+_Waiting+_ClearSelection_SelectAll+
+bind sc_c loadunits
+bind Shift+sc_c loadunits
+bind sc_v unloadunits
+bind Shift+sc_v unloadunits
+bind sc_b firestate 0
+bind sc_b movestate 0
+bind sc_c movestate 2
+bind sc_c firestate 2
+bind sc_v movestate 1
+bind sc_v firestate 2
+bind Ctrl+sc_tab allmap+_weapons_not_building_not_buildoptions_idle+_clearselection_selectall+
+bind Ctrl+Shift+sc_a select AllMap+_InPrevSel+_ClearSelection_SelectAll+
+bind Alt+sc_o cameraflip
+bind Shift+sc_[ buildfacing inc
+bind Shift+sc_] buildfacing dec
